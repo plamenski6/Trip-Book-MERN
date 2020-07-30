@@ -8,16 +8,16 @@ import './index.css'
 
 const MainNavigation = props => {
     return (
-            <MainHeader>
-                <h1 className='main-navigation__title'>
-                    <Link to='/'>
-                        You Places
+        <MainHeader>
+            <h1 className='main-navigation__title'>
+                <Link to='/'>
+                    You Places
                </Link>
-                </h1>
-                <nav className='main-navigation__header-nav'>
-                    <NavLinks />
-                </nav>
-            </MainHeader>
+            </h1>
+            <nav className='main-navigation__header-nav'>
+                <NavLinks />
+            </nav>
+        </MainHeader>
     )
 }
 
