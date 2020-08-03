@@ -18,17 +18,18 @@ const AboutUs = () => {
                 <p>Some text about who we are and what we do.</p>
                 <p>Resize the browser window to see that this page is responsive by the way.</p>
             </div>
-
-            <h2 className='heading'>Our Team</h2>
-            <div className='row'>
-                <div className='column'>
+            <hr />
+            <br />
+            <h2 className='about-heading'>Our Team</h2>
+            <div className='about-row'>
+                <div className='about-column'>
                 </div>
-                <div className='column'>
-                    <Card className='card'>
+                <div className='about-column'>
+                    <Card className='about-card'>
                         <img src={profile} alt='Jane' />
-                        <div className='container'>
+                        <div className='about-container'>
                             <h2>PLAMEN SHUMANSKI</h2>
-                            <p className='title'>Passionate Web Developer</p>
+                            <p className='about-title'>Passionate Web Developer</p>
                             <p>I am Web Developer seeking for
                             opportunity to extend my web
                             development and enhance my skill set in
@@ -37,11 +38,11 @@ const AboutUs = () => {
                             needs.
                             </p>
                             <p>plamenshumanski140@gmail.com</p>
-                            <p><button className='button' onClick={contact}>Contact</button></p>
+                            <p><button className='about-button' onClick={contact}>Contact</button></p>
                         </div>
                     </Card>
                 </div>
-                <div className='column'>
+                <div className='about-column'>
                 </div>
             </div>
         </React.Fragment>

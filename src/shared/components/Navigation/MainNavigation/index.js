@@ -11,7 +11,7 @@ const MainNavigation = props => {
         <MainHeader>
             <h1 className='main-navigation__title'>
                 <Link to='/'>
-                    You Places
+                    TRIP BOOK
                </Link>
             </h1>
             <nav className='main-navigation__header-nav'>
