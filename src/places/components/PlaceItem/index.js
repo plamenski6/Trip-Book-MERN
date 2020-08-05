@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import Modal from '../../../shared/components/Modal'
 import Card from '../../../shared/components/Card'
 import Button from '../../../shared/components/FormElements/Button'
+import { AuthContext } from '../../../shared/context/auth-context'
 
 import './index.css'
 
 const PlaceItem = props => {
+    const auth = useContext(AuthContext)
     const [showConfirmModal, setConfirmModal] = useState(false)
 
     const showDeleteWarningHandler = () => {
@@ -52,8 +54,12 @@ const PlaceItem = props => {
                     </div>
                     <div className='place-item__actions'>
                         <Button inverse>VIEW ON MAP</Button>
-                        <Button to={`/places/${props.id}`}>EDIT</Button>
-                        <Button danger onClick={showDeleteWarningHandler}>DELETE</Button>
+                        {auth.isLoggedIn &&
+                            <>
+                            <Button to={`/places/${props.id}`}>EDIT</Button>
+                            <Button danger onClick={showDeleteWarningHandler}>DELETE</Button>
+                            </>
+                        }
                     </div>
                 </Card>
             </li>

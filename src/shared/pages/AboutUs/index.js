@@ -15,8 +15,14 @@ const AboutUs = () => {
         <React.Fragment>
             <div className='about-section'>
                 <h1>About Us Page</h1>
-                <p>Some text about who we are and what we do.</p>
-                <p>Resize the browser window to see that this page is responsive by the way.</p>
+                <h2>TRIP-BOOK</h2>
+                <p>
+                    Create your own trip book. Share your amazing travels with the world,
+                    help people organize their unforgettable vacations. Explore unknown places of paradise
+                    following the trip book of other travelers. Search trips and travelers from all over the world.
+                    Review all your activities and notifications. Like, use and rate other trips.
+                    Make your trip book looks beautiful and detailed and you may earn money for that.
+                </p>
             </div>
             <hr />
             <br />
