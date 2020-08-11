@@ -31,12 +31,17 @@ const Auth = () => {
         if (!isLoginMode) {
             setFormData({
                 ...formState.inputs,
-                name: undefined
+                name: undefined,
+                image: undefined
             }, formState.inputs.email.isValid && formState.inputs.password.isValid)
         } else {
             setFormData({
                 ...formState.inputs,
                 name: {
+                    value: '',
+                    isValid: false
+                },
+                image: {
                     value: '',
                     isValid: false
                 }
@@ -50,28 +55,29 @@ const Auth = () => {
 
         if (isLoginMode) {
             try {
-                await sendRequest('http://localhost:5000/api/users/login', 'POST', JSON.stringify({
+                const responseData = await sendRequest('http://localhost:5000/api/users/login', 'POST', JSON.stringify({
                     email: formState.inputs.email.value,
                     password: formState.inputs.password.value
                 }), {
                     'Content-Type': 'application/json'
                 })
 
-                auth.login()
+                auth.login(responseData.user.id)
             } catch (err) {
 
             }
         } else {
             try {
-                await sendRequest('http://localhost:5000/api/users/signup', 'POST', JSON.stringify({
+                const responseData = await sendRequest('http://localhost:5000/api/users/signup', 'POST', JSON.stringify({
                     name: formState.inputs.name.value,
+                    image: formState.inputs.image.value,
                     email: formState.inputs.email.value,
                     password: formState.inputs.password.value
                 }), {
                     'Content-Type': 'application/json'
                 })
 
-                auth.login()
+                auth.login(responseData.user.id)
             } catch (err) {
 
             }
@@ -87,13 +93,22 @@ const Auth = () => {
                 <hr />
                 <form onSubmit={authSubmitHandler}>
                     {!isLoginMode &&
-                        <Input
-                            id='name'
-                            element='input'
-                            type='text'
-                            label='Your Name'
-                            onInput={inputHandler}
-                        />}
+                        <>
+                            <Input
+                                id='name'
+                                element='input'
+                                type='text'
+                                label='Your Name'
+                                onInput={inputHandler}
+                            />
+                            <Input
+                                id='image'
+                                element='input'
+                                label='Avata (imageUrl)'
+                                onInput={inputHandler}
+                            />
+                        </>
+                    }
                     <Input
                         id='email'
                         element='input'

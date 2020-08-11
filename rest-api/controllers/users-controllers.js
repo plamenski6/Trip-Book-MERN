@@ -23,7 +23,7 @@ const signup = async (req, res, next) => {
     return next(error)
   }
 
-  const { name, email, password } = req.body
+  const { name, email, password, image } = req.body
 
   let existingUser
   try {
@@ -41,8 +41,8 @@ const signup = async (req, res, next) => {
   const createdUser = new User({
     name,
     email,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Person_icon_BLACK-01.svg/564px-Person_icon_BLACK-01.svg.png',
     password,
+    image,
     places: []
   })
 
@@ -72,7 +72,7 @@ const login = async (req, res, next) => {
     return next(error)
   }
 
-  res.json({ message: 'Logged in!' })
+  res.json({ message: 'Logged in!', user: existingUser.toObject({ getters: true }) })
 }
 
 exports.getUsers = getUsers

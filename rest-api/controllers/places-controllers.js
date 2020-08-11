@@ -52,12 +52,12 @@ const createPlace = async (req, res, next) => {
     )
   }
 
-  const { title, description, address, creator } = req.body
+  const { title, description, address, image, creator } = req.body
 
   const createdPlace = new Place({
     title,
     description,
-    image: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Empire_State_Building_%28aerial_view%29.jpg',
+    image,
     address,
     creator
   })
