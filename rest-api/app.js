@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const url = 'mongodb+srv://plamenski6:dbPass@cluster0-j6rki.mongodb.net/trip-book?retryWrites=true&w=majority'
+const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0-j6rki.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
 
 const placesRoutes = require('./routes/places-routes')
 const usersRoutes = require('./routes/users-routes')
