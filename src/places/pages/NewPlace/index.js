@@ -48,7 +48,8 @@ const NewPlace = () => {
                 creator: auth.userId
             }),
                 {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                     Authorization: 'Bearer ' + auth.token
                 })
             history.push('/')
         } catch (err) {

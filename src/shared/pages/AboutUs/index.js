@@ -20,8 +20,7 @@ const AboutUs = () => {
                     Create your own trip book. Share your amazing travels with the world,
                     help people organize their unforgettable vacations. Explore unknown places of paradise
                     following the trip book of other travelers. Search trips and travelers from all over the world.
-                    Review all your activities and notifications. Like, use and rate other trips.
-                    Make your trip book looks beautiful and detailed and you may earn money for that.
+                    Review all your activities and notifications. Make your trip book looks beautiful and detailed.
                 </p>
             </div>
             <hr />

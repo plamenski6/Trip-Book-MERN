@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import Card from '../../../shared/components/Card'
 import Input from '../../../shared/components/FormElements/Input'
@@ -50,6 +51,8 @@ const Auth = () => {
         setIsLoginMode(prevMode => !prevMode)
     }
 
+    const history = useHistory()
+
     const authSubmitHandler = async (event) => {
         event.preventDefault()
 
@@ -62,7 +65,8 @@ const Auth = () => {
                     'Content-Type': 'application/json'
                 })
 
-                auth.login(responseData.user.id)
+                auth.login(responseData.userId, responseData.token)
+                history.push('/')
             } catch (err) {
 
             }
@@ -77,7 +81,8 @@ const Auth = () => {
                     'Content-Type': 'application/json'
                 })
 
-                auth.login(responseData.user.id)
+                auth.login(responseData.userId, responseData.token)
+                history.push('/')
             } catch (err) {
 
             }
