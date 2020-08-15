@@ -1,3 +1,59 @@
+## FOR THE APP
+### This is a React.js application using Node.js and Express.js for backend and MongoDB for database.
+Create your own trip book. Share your amazing travels with the world,
+help people organize their unforgettable vacations. Explore unknown places of paradise
+following the trip book of other travelers. Search trips and travelers from all over the world.
+Review all your activities and notifications. Make your trip book looks beautiful and detailed.
+
+The application is made for two purposes - sharing and help.
+Achieve all your dreams without fear of the unknown, monotonous or your financial opportunities. Share your experience to help others.
+
+Available features that Trip-book offers:
+- Sharing each of your travels with the whole world;
+- Own book/account to manage entirely by yourself;
+- Manage your own account;
+- Forms for reporting irregularities and for sharing ideas;
+- Short registration with which you get access to everything that Trip-book offers;
+- User authentication (signup + login);
+- User authorization (controlling access to certain resources);
+- Convenient and easy to understand view for both large and small screens;
+
+### Using Dependencies
+For the frontend:
+- react
+- react-dom
+- react-router-dom
+- react-scripts
+- react-transition-group
+
+For the backend:
+- bcrypt
+- body-parser
+- express
+- express-validator
+- jsonwebtoken
+- mongoose
+- mongoose-unique-validator
+- uuid
+- nodemon
+
+### Main Routes
+1. API Endpoints for users:
+**/api/...**
+- GET .../ - Retrieve list of all users.
+- POST .../auth - Create new user + log user in(signup + login).
+2. API Endpoints for places:
+**/api/places/...**
+- GET .../:uid/places - Retrieve list of all places for a given user id(uid).
+- GET .../:pid - Get a specific place by place id(pid).
+- POST .../new - Create a new place.
+- PATCH .../:pid - Update a place by id(pid).
+- DELETE .../:pid - Delete a place by id(pid).
+3. About Page:
+**/api/about/**
+
+###
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -62,7 +118,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 ### Deployment
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
