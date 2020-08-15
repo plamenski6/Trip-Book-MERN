@@ -50,7 +50,7 @@ For the backend:
 - PATCH .../:pid - Update a place by id(pid).
 - DELETE .../:pid - Delete a place by id(pid).
 3. About Page:
-**/api/about/**
+**/api/about**
 
 ### Deploying
 For the backend i am using Heroku to deploy and run server, and for the frontend Firebase hosting.
