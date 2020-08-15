@@ -66,7 +66,6 @@ const Auth = () => {
                 })
 
                 auth.login(responseData.userId, responseData.email, responseData.token)
-                history.push('/')
             } catch (err) {
 
             }
@@ -82,11 +81,11 @@ const Auth = () => {
                 })
 
                 auth.login(responseData.userId, responseData.email, responseData.token)
-                history.push('/')
             } catch (err) {
 
             }
         }
+        history.push('/')
     }
 
     return (

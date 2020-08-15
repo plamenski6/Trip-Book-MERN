@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 import { AuthContext } from '../../../context/auth-context'
 
@@ -21,7 +21,9 @@ const NavLinks = props => {
                         <NavLink to='/places/new'>ADD PLACE</NavLink>
                     </li>
                     <li>
-            <button onClick={auth.logout}>LOGOUT ({auth.userEmail})</button>
+                        <Link to='/'>
+                            <button onClick={auth.logout}>LOGOUT ({auth.userEmail})</button>
+                        </Link>
                     </li>
                 </>
             }
