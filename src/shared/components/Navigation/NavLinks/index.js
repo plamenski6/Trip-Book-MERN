@@ -34,7 +34,7 @@ const NavLinks = props => {
             }
             <hr />
             <li>
-                <NavLink to='/about'>ABOUT ME</NavLink>
+                <NavLink to='/about'>ABOUT US</NavLink>
             </li>
         </ul>
     )

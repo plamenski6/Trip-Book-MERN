@@ -14,12 +14,11 @@ const AboutUs = () => {
     return (
         <React.Fragment>
             <div className='about-section'>
-                <h1>About Us Page</h1>
-                <h2>TRIP-BOOK</h2>
+                <h1>TRIP-BOOK</h1>
                 <p>
-                    Create your own trip book. Share your amazing travels with the world,
-                    help people organize their unforgettable vacations. Explore unknown places of paradise
-                    following the trip book of other travelers. Search trips and travelers from all over the world.
+                    Create your own trip book. Share your amazing travels with the world,<br />
+                    help people organize their unforgettable vacations. Explore unknown places of paradise<br />
+                    following the trip book of other travelers. Search trips and travelers from all over the world.<br />
                     Review all your activities and notifications. Make your trip book looks beautiful and detailed.
                 </p>
             </div>
