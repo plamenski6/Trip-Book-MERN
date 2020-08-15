@@ -52,13 +52,10 @@ For the backend:
 3. About Page:
 **/api/about/**
 
-<<<<<<< HEAD
 ### Deploying
-For the backend i am using Heroku, to deploy and run server and for the frontend Firebase hosting.
-To start the app in production mode you can access it from this url: **[trip-book-mern.web.app]**(trip-book-mern.web.app)
+For the backend i am using Heroku to deploy and run server, and for the frontend Firebase hosting.
+To start the app in production mode, you can access it from this url: [trip-book-mern.web.app](trip-book-mern.web.app)
 
-=======
->>>>>>> 3260cfc5bdfa351995ec0ce56def7e33ddf68736
 ## Available Scripts
 
 In the project directory, you can run:
