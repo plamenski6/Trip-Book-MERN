@@ -65,7 +65,7 @@ const Auth = () => {
                     'Content-Type': 'application/json'
                 })
 
-                auth.login(responseData.userId, responseData.token)
+                auth.login(responseData.userId, responseData.email, responseData.token)
                 history.push('/')
             } catch (err) {
 
@@ -81,7 +81,7 @@ const Auth = () => {
                     'Content-Type': 'application/json'
                 })
 
-                auth.login(responseData.userId, responseData.token)
+                auth.login(responseData.userId, responseData.email, responseData.token)
                 history.push('/')
             } catch (err) {
 
@@ -97,7 +97,7 @@ const Auth = () => {
                 <h2>Login Required</h2>
                 <hr />
                 <form onSubmit={authSubmitHandler}>
-                    {!isLoginMode &&
+                    {!isLoginMode && (
                         <>
                             <Input
                                 id='name'
@@ -113,6 +113,7 @@ const Auth = () => {
                                 onInput={inputHandler}
                             />
                         </>
+                    )
                     }
                     <Input
                         id='email'

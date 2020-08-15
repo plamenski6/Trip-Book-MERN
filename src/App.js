@@ -19,25 +19,28 @@ const UpdatePlace = React.lazy(() => import('./places/pages/UpdatePlace'))
 const Auth = React.lazy(() => import('./users/pages/Auth'))
 
 const App = () => {
-  const [token, setToken] = useState(false)
   const [userId, setUserId] = useState(false)
+  const [userEmail, setUserEmail] = useState(false)
+  const [token, setToken] = useState(false)
 
-  const login = useCallback((uid, token) => {
-    setToken(token)
+  const login = useCallback((uid, email, token) => {
     setUserId(uid)
-    localStorage.setItem('userData', JSON.stringify({ userId: uid, token }))
+    setUserEmail(email)
+    setToken(token)
+    localStorage.setItem('userData', JSON.stringify({ userId: uid, userEmail: email, token }))
   }, [])
 
   const logout = useCallback(() => {
-    setToken(null)
     setUserId(null)
+    setUserEmail(null)
+    setToken(null)
     localStorage.removeItem('userData')
   }, [])
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('userData'))
     if (storedData && storedData.token) {
-      login(storedData.userId, storedData.token)
+      login(storedData.userId, storedData.userEmail, storedData.token)
     }
   }, [login])
 
@@ -64,7 +67,7 @@ const App = () => {
   }
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn: !!token, token, userId, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn: !!token, token, userId, userEmail, login, logout }}>
       <Router>
         <MainNavigation />
         <main>

@@ -7,7 +7,6 @@ import './index.css'
 
 const NavLinks = props => {
     const auth = useContext(AuthContext)
-
     return (
         <ul className='nav-links'>
             <li>
@@ -22,7 +21,7 @@ const NavLinks = props => {
                         <NavLink to='/places/new'>ADD PLACE</NavLink>
                     </li>
                     <li>
-                        <button onClick={auth.logout}>LOGOUT</button>
+            <button onClick={auth.logout}>LOGOUT ({auth.userEmail})</button>
                     </li>
                 </>
             }
