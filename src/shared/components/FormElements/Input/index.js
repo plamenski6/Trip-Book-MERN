@@ -2,21 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import './index.css'
 
-// const inputReducer = (state, action) => {
-//     switch (action.type) {
-//         case 'CHANGE':
-//             return {
-//                 ...state,
-//                 value: action.val,
-//                 isValid: validate(action.val, action.validators)
-//             };
-//         default:
-//             return state;
-//     }
-// }
-
 const Input = props => {
-    // const [inputState, dispatch] = useReducer(inputReducer, { value: '', isValid: false })
     const [enteredValue, setEnteredValue] = useState(props.initialValue || '')
     const [isValid, setIsValid] = useState(props.initialValid || false)
 
@@ -26,11 +12,6 @@ const Input = props => {
     }, [id, enteredValue, isValid, onInput])
 
     const changeHandler = event => {
-        // dispatch({
-        //     type: 'CHANGE',
-        //     val: event.target.value,
-        //     validators: props.validators
-        // })
         setEnteredValue(event.target.value)
         setIsValid(true)
     }

@@ -108,7 +108,7 @@ const Auth = () => {
                             <Input
                                 id='image'
                                 element='input'
-                                label='Avata (imageUrl)'
+                                label='Avatar (imageUrl)'
                                 onInput={inputHandler}
                             />
                         </>

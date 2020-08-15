@@ -52,9 +52,9 @@ For the backend:
 3. About Page:
 **/api/about/**
 
-###
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Deploying
+For the backend i am using Heroku, to deploy and run server and for the frontend Firebase hosting.
+To start the app in production mode you can access it from this url: **[trip-book-mern.web.app]**(trip-book-mern.web.app)
 
 ## Available Scripts
 
