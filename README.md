@@ -53,7 +53,7 @@ For the backend:
 **/api/about**
 
 ### Deploying
-For the backend i am using Heroku to deploy and run server, and for the frontend Firebase hosting.
+For the backend i am using Heroku to deploy and run server, and for the frontend Firebase hosting.<br />
 To start the app in production mode, you can access it from this url: [trip-book-mern.web.app](https://trip-book-mern.web.app/)
 
 ## Available Scripts
