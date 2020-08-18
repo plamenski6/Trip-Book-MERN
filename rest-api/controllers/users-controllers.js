@@ -21,7 +21,7 @@ const getUsers = async (req, res, next) => {
 const signup = async (req, res, next) => {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
-    const error = new HttpError('Invalid inputs passed, please check your data.', 422)
+    const error = new HttpError('Invalid inputs passed! Password must be at least 6 characters long.', 422)
     return next(error)
   }
 

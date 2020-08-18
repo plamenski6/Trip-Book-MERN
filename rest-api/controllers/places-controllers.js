@@ -12,7 +12,7 @@ const getPlaceById = async (req, res, next) => {
   try {
     place = await Place.findById(placeId)
   } catch (err) {
-    const error = new HttpError('Something went wrong, could not find a place', 500)
+    const error = new HttpError('Something went wrong, could not find a place.', 500)
     return next(error)
   }
 
@@ -31,7 +31,7 @@ const getPlacesByUserId = async (req, res, next) => {
   try {
     userWithPlaces = await User.findById(userId).populate('places')
   } catch (err) {
-    const error = new HttpError('Fetching places failed', 500)
+    const error = new HttpError('Fetching places failed.', 500)
     return next(error)
   }
 
@@ -48,7 +48,7 @@ const createPlace = async (req, res, next) => {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
     return next(
-      new HttpError('Invalid inputs passed, please check your data.', 422)
+      new HttpError('Invalid inputs passed! Description must be at least 5 characters long.', 422)
     )
   }
 
@@ -71,7 +71,7 @@ const createPlace = async (req, res, next) => {
   }
 
   if (!user) {
-    const error = new HttpError('Could not find user for provided id', 404)
+    const error = new HttpError('Could not find user for provided id.', 404)
     return next(error)
   }
 
@@ -94,7 +94,7 @@ const createPlace = async (req, res, next) => {
 const updatePlace = async (req, res, next) => {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
-    const error = new HttpError('Invalid inputs passed, please check your data.', 422)
+    const error = new HttpError('Invalid inputs passed! Description must be at least 5 characters long.', 422)
     return next(error)
   }
 
@@ -134,12 +134,12 @@ const deletePlace = async (req, res, next) => {
   try {
     place = await Place.findById(placeId).populate('creator')
   } catch (err) {
-    const error = new HttpError('Could not delete place', 500)
+    const error = new HttpError('Could not delete place.', 500)
     return next(error)
   }
 
   if (!place) {
-    const error = new HttpError('Could not find place with this id', 404)
+    const error = new HttpError('Could not find place with this id.', 404)
     return next(error)
   }
 
@@ -157,7 +157,7 @@ const deletePlace = async (req, res, next) => {
     await sess.commitTransaction()
 
   } catch (err) {
-    const error = new HttpError('Could not delete place', 500)
+    const error = new HttpError('Could not delete place.', 500)
     return next(error)
   }
 
