@@ -6,9 +6,8 @@ import LoadingSpinner from '../../shared/components/LoadingSpinner'
 import { useHttpClient } from '../../shared/hooks/http-hook'
 
 const Users = () => {
-    const {isLoading, error, sendRequest, clearError } = useHttpClient()
+    const { isLoading, error, sendRequest, clearError } = useHttpClient()
     const [loadedUsers, setLoadedUsers] = useState()
-
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -16,7 +15,7 @@ const Users = () => {
                 const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + '/users')
                 setLoadedUsers(responseData.users)
             } catch (err) {
-    
+
             }
         }
         fetchUsers()
@@ -27,7 +26,7 @@ const Users = () => {
             <ErrorModal error={error} onClear={clearError} />
             {isLoading && (<div className='center'>
                 <LoadingSpinner />
-                </div>)}
+            </div>)}
             {!isLoading && loadedUsers && <UserList items={loadedUsers} />}
         </React.Fragment>
     )

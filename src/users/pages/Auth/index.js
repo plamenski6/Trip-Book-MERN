@@ -80,7 +80,7 @@ const Auth = () => {
                 }), {
                     'Content-Type': 'application/json'
                 })
-
+                
                 auth.login(responseData.userId, responseData.email, responseData.token)
                 history.push('/')
             } catch (err) {
