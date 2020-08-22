@@ -6,6 +6,11 @@ import Input from '../../../shared/components/FormElements/Input'
 import Button from '../../../shared/components/FormElements/Button'
 import ErrorModal from '../../../shared/components/ErrorModal'
 import LoadingSpinner from '../../../shared/components/LoadingSpinner'
+import {
+    VALIDATOR_EMAIL,
+    VALIDATOR_MINLENGTH,
+    VALIDATOR_REQUIRE
+} from '../../../shared/util/validators'
 import { useForm } from '../../../shared/hooks/form-hook'
 import { useHttpClient } from '../../../shared/hooks/http-hook'
 import { AuthContext } from '../../../shared/context/auth-context'
@@ -80,7 +85,7 @@ const Auth = () => {
                 }), {
                     'Content-Type': 'application/json'
                 })
-                
+
                 auth.login(responseData.userId, responseData.email, responseData.token)
                 history.push('/')
             } catch (err) {
@@ -104,12 +109,16 @@ const Auth = () => {
                                 element='input'
                                 type='text'
                                 label='Your Name'
+                                validators={[VALIDATOR_REQUIRE()]}
+                                errorText='Please enter a name.'
                                 onInput={inputHandler}
                             />
                             <Input
                                 id='image'
                                 element='input'
-                                label='Avatar (imageUrl)'
+                                label='Avatar'
+                                validators={[VALIDATOR_REQUIRE()]}
+                                errorText='Please enter a imageUrl (image link).'
                                 onInput={inputHandler}
                             />
                         </>
@@ -120,6 +129,8 @@ const Auth = () => {
                         element='input'
                         type='email'
                         label='E-mail'
+                        validators={[VALIDATOR_EMAIL()]}
+                        errorText='Please enter a valid email address.'
                         onInput={inputHandler}
                     />
                     <Input
@@ -127,6 +138,8 @@ const Auth = () => {
                         element='input'
                         type='password'
                         label='Password'
+                        validators={[VALIDATOR_MINLENGTH(6)]}
+                        errorText='Please enter a valid password, at least 6 characters.'
                         onInput={inputHandler}
                     />
                     <Button type='submit' disabled={!formState.isValid}>
