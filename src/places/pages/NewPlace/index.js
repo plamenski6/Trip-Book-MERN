@@ -28,6 +28,14 @@ const NewPlace = () => {
             value: '',
             isValid: false
         },
+        lat: {
+            value: '',
+            isValid: false
+        },
+        lng: {
+            value: '',
+            isValid: false
+        },
         image: {
             value: '',
             isValid: false
@@ -44,12 +52,14 @@ const NewPlace = () => {
                 title: formState.inputs.title.value,
                 description: formState.inputs.description.value,
                 address: formState.inputs.address.value,
+                lat: formState.inputs.lat.value,
+                lng: formState.inputs.lng.value,
                 image: formState.inputs.image.value,
                 creator: auth.userId
             }),
                 {
                     'Content-Type': 'application/json',
-                     Authorization: 'Bearer ' + auth.token
+                    Authorization: 'Bearer ' + auth.token
                 })
             history.push('/')
         } catch (err) {
@@ -78,6 +88,18 @@ const NewPlace = () => {
                     id='address'
                     element='input'
                     label='Address'
+                    onInput={inputHandler}
+                />
+                <Input
+                    id='lat'
+                    element='input'
+                    label='Latitude'
+                    onInput={inputHandler}
+                />
+                <Input
+                    id='lng'
+                    element='input'
+                    label='Longitude'
                     onInput={inputHandler}
                 />
                 <Input

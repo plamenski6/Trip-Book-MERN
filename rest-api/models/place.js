@@ -19,6 +19,8 @@ const placeSchema = new Schema({
         type: String,
         required: true
     },
+    lat: { type: Number, required: true },
+    lng: { type: Number, required: true },
     creator: {
         type: mongoose.Types.ObjectId,
         required: true,

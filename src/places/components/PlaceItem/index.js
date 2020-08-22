@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react'
 import Modal from '../../../shared/components/Modal'
 import Card from '../../../shared/components/Card'
 import Button from '../../../shared/components/FormElements/Button'
+import Map from '../../../shared/components/Map'
 import ErrorModal from '../../../shared/components/ErrorModal'
 import LoadingSpinner from '../../../shared/components/LoadingSpinner'
 import { AuthContext } from '../../../shared/context/auth-context'
@@ -13,7 +14,12 @@ import './index.css'
 const PlaceItem = props => {
     const auth = useContext(AuthContext)
     const { isLoading, error, sendRequest, clearError } = useHttpClient()
+    const [showMap, setShowMap] = useState(false);
     const [showConfirmModal, setConfirmModal] = useState(false)
+
+    const openMapHandler = () => setShowMap(true);
+
+    const closeMapHandler = () => setShowMap(false);
 
     const showDeleteWarningHandler = () => {
         setConfirmModal(true)
@@ -39,6 +45,18 @@ const PlaceItem = props => {
     return (
         <React.Fragment>
             <ErrorModal error={error} onClear={clearError} />
+            <Modal
+                show={showMap}
+                onCancel={closeMapHandler}
+                header={props.address}
+                contentClass="place-item__modal-content"
+                footerClass="place-item__modal-actions"
+                footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
+            >
+                <div className="map-container">
+                    <Map lng={props.lng} lat={props.lat} zoom={16} />
+                </div>
+            </Modal>
             <Modal
                 show={showConfirmModal}
                 onCancel={cancelDeleteHanler}
@@ -66,14 +84,17 @@ const PlaceItem = props => {
                         <h3>{props.address}</h3>
                         <p>{props.description}</p>
                     </div>
-                    {auth.userId === props.creatorId && (
-                        <div className='place-item__actions'>
+                    <div className='place-item__actions'>
+                        <Button inverse onClick={openMapHandler}>
+                            VIEW ON MAP
+                          </Button>
+                        {auth.userId === props.creatorId && (
                             <>
                                 <Button to={`/places/${props.id}`}>EDIT</Button>
                                 <Button danger onClick={showDeleteWarningHandler}>DELETE</Button>
                             </>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </Card>
             </li>
         </React.Fragment>

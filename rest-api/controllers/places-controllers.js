@@ -52,13 +52,15 @@ const createPlace = async (req, res, next) => {
     )
   }
 
-  const { title, description, address, image, creator } = req.body
+  const { title, description, address, lat, lng, image, creator } = req.body
 
   const createdPlace = new Place({
     title,
     description,
-    image,
     address,
+    lat,
+    lng,
+    image,
     creator
   })
 
