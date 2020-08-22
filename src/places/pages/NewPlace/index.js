@@ -83,14 +83,14 @@ const NewPlace = () => {
                     type='text'
                     label='Title'
                     validators={[VALIDATOR_REQUIRE()]}
-                    errorText="Please enter a valid title."
+                    errorText='Please enter a valid title.'
                     onInput={inputHandler}
                 />
                 <Input
                     id='description'
                     label='Description'
                     validators={[VALIDATOR_MINLENGTH(5)]}
-                    errorText="Please enter a valid description (at least 5 characters)."
+                    errorText='Please enter a valid description (at least 5 characters).'
                     onInput={inputHandler}
                 />
                 <Input
@@ -98,7 +98,7 @@ const NewPlace = () => {
                     element='input'
                     label='Address'
                     validators={[VALIDATOR_REQUIRE()]}
-                    errorText="Please enter a valid address."
+                    errorText='Please enter a valid address.'
                     onInput={inputHandler}
                 />
                 <Input
@@ -106,7 +106,7 @@ const NewPlace = () => {
                     element='input'
                     label='Latitude'
                     validators={[VALIDATOR_NUMBER()]}
-                    errorText="Please enter a valid latitude (only numbers)."
+                    errorText='Please enter a valid latitude (only numbers).'
                     onInput={inputHandler}
                 />
                 <Input
@@ -114,7 +114,7 @@ const NewPlace = () => {
                     element='input'
                     label='Longitude'
                     validators={[VALIDATOR_NUMBER()]}
-                    errorText="Please enter a valid longitude (only numbers)."
+                    errorText='Please enter a valid longitude (only numbers).'
                     onInput={inputHandler}
                 />
                 <Input
@@ -122,7 +122,7 @@ const NewPlace = () => {
                     element='input'
                     label='ImageUrl'
                     validators={[VALIDATOR_REQUIRE()]}
-                    errorText="Please enter a valid imageUrl (image link)."
+                    errorText='Please enter a valid imageUrl (image link).'
                     onInput={inputHandler}
                 />
                 <Button type='submit' disabled={!formState.isValid}>ADD PLACE</Button>

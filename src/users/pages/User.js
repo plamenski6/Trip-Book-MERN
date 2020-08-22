@@ -7,7 +7,7 @@ import { useHttpClient } from '../../shared/hooks/http-hook'
 
 const Users = () => {
     const { isLoading, error, sendRequest, clearError } = useHttpClient()
-    const [searchTerm, setSearchTerm] = useState("")
+    const [searchTerm, setSearchTerm] = useState('')
     const [searchResults, setSearchResults] = useState([])
 
     useEffect(() => {
@@ -37,8 +37,8 @@ const Users = () => {
             </div>)}
             <div className='center'>
                 <input
-                    type="text"
-                    placeholder="Search"
+                    type='text'
+                    placeholder='Search'
                     value={searchTerm}
                     onChange={handleChange}
                 />

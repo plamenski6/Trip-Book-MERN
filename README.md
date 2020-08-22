@@ -10,6 +10,8 @@ Achieve all your dreams without fear of the unknown, monotonous or your financia
 
 Available features that Trip-book offers:
 - Sharing each of your travels with the whole world;
+- Filter users through search bar by name;
+- Map view of every place that represents a simple 2D view;
 - Own book/account to manage entirely by yourself;
 - Manage your own account;
 - Forms for reporting irregularities and for sharing ideas;

@@ -5,7 +5,7 @@ import './index.css';
 
 const Backdrop = props => {
   return ReactDOM.createPortal(
-    <div className="backdrop" onClick={props.onClick}></div>,
+    <div className='backdrop' onClick={props.onClick}></div>,
     document.getElementById('backdrop-hook')
   );
 };

@@ -5,7 +5,7 @@ import './index.css';
 const LoadingSpinner = props => {
   return (
     <div className={`${props.asOverlay && 'loading-spinner__overlay'}`}>
-      <div className="lds-dual-ring"></div>
+      <div className='lds-dual-ring'></div>
     </div>
   );
 };
