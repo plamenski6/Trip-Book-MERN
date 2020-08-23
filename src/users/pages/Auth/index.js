@@ -108,7 +108,7 @@ const Auth = () => {
                                 id='name'
                                 element='input'
                                 type='text'
-                                label='Your Name'
+                                label='Username'
                                 validators={[VALIDATOR_REQUIRE()]}
                                 errorText='Please enter a name.'
                                 onInput={inputHandler}
