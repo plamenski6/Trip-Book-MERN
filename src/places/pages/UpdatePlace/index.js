@@ -6,6 +6,10 @@ import Button from '../../../shared/components/FormElements/Button'
 import Card from '../../../shared/components/Card'
 import ErrorModal from '../../../shared/components/ErrorModal'
 import LoadingSpinner from '../../../shared/components/LoadingSpinner'
+import {
+    VALIDATOR_REQUIRE,
+    VALIDATOR_MINLENGTH
+} from '../../../shared/util/validators'
 import { AuthContext } from '../../../shared/context/auth-context'
 import { useForm } from '../../../shared/hooks/form-hook'
 import { useHttpClient } from '../../../shared/hooks/http-hook'
@@ -61,7 +65,7 @@ const UpdatePlace = () => {
                 description: formState.inputs.description.value
             }), {
                 'Content-Type': 'application/json',
-                 Authorization: 'Bearer ' + auth.token
+                Authorization: 'Bearer ' + auth.token
             })
             history.push(`/${auth.userId}/places`)
         } catch (err) {
@@ -97,6 +101,8 @@ const UpdatePlace = () => {
                         element='input'
                         type='text'
                         label='Title'
+                        validators={[VALIDATOR_REQUIRE()]}
+                        errorText="Please enter a valid title."
                         onInput={inputHandler}
                         initialValue={loadedPlace.title}
                         initialValid={true}
@@ -104,6 +110,8 @@ const UpdatePlace = () => {
                     <Input
                         id='description'
                         label='Description'
+                        validators={[VALIDATOR_MINLENGTH(5)]}
+                        errorText="Please enter a valid description (at least 5 characters)."
                         onInput={inputHandler}
                         initialValue={loadedPlace.description}
                         initialValid={true}
